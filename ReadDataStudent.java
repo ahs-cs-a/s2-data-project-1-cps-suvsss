@@ -2,10 +2,10 @@ import java.util.Scanner;
 import java.io.File;
 
 
-public class ReadData-Student{
+public class ReadDataStudent{
     //I hard-coded the number of rows and columns so 
     //I could use a 2D array
-    private double[][] data = new double[...][...];
+    private double[][] data = new double[29107][13];
 
     //This should read in the csv file and store the data in a 2D array,
     //data -- don't forget to skip the header line and parse everything
@@ -18,7 +18,9 @@ public class ReadData-Student{
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine();
                 String[] lineArr = line.split(",");
-                ...
+                for( int col = 0; col < lineArr.length; col++){
+                    data[row][col] = Double.parseDouble(lineArr[col]);
+                }
                 row++;
             }
             scanner.close();
@@ -35,8 +37,10 @@ public class ReadData-Student{
     //this should return a double array of the column
     //of data
     public double[] getColumn(int col){
-        double[] column = ...
-        ...
+        double[] column = new double[data.length];
+        for( int row = 0; row < data.length; row++){
+            column[row] = data[row][col];
+        }
         return column;
     }
 
@@ -50,8 +54,8 @@ public class ReadData-Student{
     //and Math.sqrt to take the square root
     public double stdDeviation(double[] arr){
         double sum = 0;
-        double mean = ...
-        ...
+        double mean = 
+        
         return .. //sample variance!
     }
     
@@ -59,8 +63,10 @@ public class ReadData-Student{
     //the mean is the sum of the values divided by the number of values
     public double mean(double[] arr){
         double sum = 0;
-        ...
-        return ...;
+        for(int i = 0; i < arr.length; i++){
+            sum += arr[i];
+        }
+        return sum/ arr.length;
     }
 
     //this returns the values of a column in standard units
