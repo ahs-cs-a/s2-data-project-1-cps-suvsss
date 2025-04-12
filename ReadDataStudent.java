@@ -53,22 +53,16 @@ public class ReadDataStudent{
     //Use Math.pow to square the difference
     //and Math.sqrt to take the square root
     public double stdDeviation(double[] arr){
-            double sum = 0;
-            double var1 = 0;
-            double temp = 0; 
-    
-            for(int i = 0; i<arr.length; i++){
-               sum = sum + arr[i];
-            }
-    
-            double mean = sum/arr.length;
-    
-            for(int i = 0; i<arr.length; i++){
-                var1 = var1 + Math.pow(arr[i]-mean,2);
-            }
-            temp = Math.sqrt(var1/(arr.length-1)); 
-        return  temp;
-        }
+           double sum = 0;
+          double mean = mean(arr);
+
+    for( int i = 0; i < arr.length; i++){
+    sum += Math.pow(arr[i]-mean,2);
+    }
+    sum = sum / (arr.length-1);
+
+    return Math.sqrt(sum);
+}
 
     
     
